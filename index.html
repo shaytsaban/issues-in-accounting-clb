@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>סוגיות בחשבונאות | אתר הקורס</title>
+<meta name="description" content="אתר הקורס סוגיות בחשבונאות, ניתוח דוחות כספיים והערכת שווי חברות, המרכז האקדמי למשפט ולעסקים ברמת גן: מצגות אינטראקטיביות עם גיליונות Excel חיים, סיכומים, חוברת תרגילים וקובצי תרגול.">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{--ink:#16213a;--ink2:#2a3858;--mut:#5d6a86;--paper:#f6f2ea;--card:#fff;--line:#e4dccd;--coral:#ff6a4d;--navy:#0f1b33;--navy2:#1b2d55}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Heebo','Segoe UI','Arial Hebrew',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+.n{direction:ltr;unicode-bidi:isolate}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.hero{background:radial-gradient(1200px 700px at 80% 0%,#27447f 0%,var(--navy) 55%,#08101f 100%);color:#fff;padding:56px 0 64px}
+.kick{font-size:17px;font-weight:700;color:#7fe3d6;display:flex;gap:10px;align-items:center}
+.kick:before{content:"";flex:none;width:34px;height:4px;border-radius:4px;background:#7fe3d6}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.15;font-weight:800;letter-spacing:-.01em;margin-top:10px}
+.lead{font-size:clamp(17px,2.4vw,21px);color:#c8d4f2;max-width:720px;margin-top:16px}
+.meta{margin-top:20px;color:#b8c6e8;font-size:17px}
+section.block{padding-top:44px}
+h2.sec{font-size:30px;font-weight:800;display:flex;gap:12px;align-items:center}
+h2.sec:before{content:"";flex:none;width:34px;height:5px;border-radius:5px;background:var(--coral)}
+.lec{margin-top:18px;background:var(--card);border-radius:22px;box-shadow:0 2px 0 var(--line),0 14px 40px rgba(22,33,58,.07);overflow:hidden}
+.lec-head{padding:26px 30px 8px;display:flex;gap:18px;align-items:center}
+.lec-n{flex:none;width:64px;height:64px;border-radius:18px;background:var(--navy2);color:#fff;display:grid;place-items:center;font-size:30px;font-weight:800}
+.lec-head h3{font-size:26px;line-height:1.25;font-weight:800}
+.lec-head .sub{color:var(--mut);font-size:16px}
+.soon{color:var(--mut);font-size:17px;line-height:1.5}
+.draft{display:inline-block;background:#fff1c7;color:#8a5a00;border:1px solid #f0b429;border-radius:999px;font-size:13px;font-weight:800;padding:1px 10px;margin-right:6px;vertical-align:middle}
+.soon+.links{margin-top:8px}
+.lec-body{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;padding:14px 30px 26px}
+.lec-body h4,.learn{list-style:none}
+.learn li{padding:8px 20px 8px 0;position:relative;border-bottom:1px dashed var(--line);font-size:16.5px;line-height:1.45}
+.learn li:last-child{border:0}
+.learn li:before{content:"";position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.links{display:flex;flex-direction:column;gap:12px}
+.lk{display:flex;gap:14px;align-items:center;border-radius:16px;padding:14px 16px;border:2px solid var(--line);background:#fff;transition:transform .15s,border-color .15s,box-shadow .15s}
+.lk:hover{transform:translateY(-2px);border-color:var(--coral);box-shadow:0 8px 20px rgba(22,33,58,.1)}
+.lk .e{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px}
+.lk b{display:block;font-size:17px;line-height:1.25}
+.lk .d{font-size:14.5px;color:var(--mut);line-height:1.35;display:block}
+.lk.p .e{background:#ffe3dc}.lk.s .e{background:#dff5f2}
+footer{margin-top:50px;padding:24px 0 34px;border-top:1px solid var(--line);color:var(--mut);font-size:15.5px}
+footer a{color:var(--navy2);font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline-block}
+@media (max-width:760px){
+ .wrap{padding:0 16px}
+ .hero{padding:40px 0 44px}
+ h2.sec{font-size:25px}
+ .lec-head{padding:20px 18px 6px;gap:12px}
+ .lec-n{width:50px;height:50px;font-size:24px;border-radius:14px}
+ .lec-head h3{font-size:22px}
+ .lec-body{grid-template-columns:minmax(0,1fr);gap:22px;padding:12px 18px 22px}
+  }
+
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.cnote{font-size:15px;color:var(--mut);margin-top:8px}
+.bkm .bkl{font-size:15.5px;color:var(--ink2);margin:-2px 0 8px}
+.slv{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.4;background:#fff;border-radius:10px;overflow:hidden}
+.slv th{background:#1b2d55;color:#fff;text-align:right;padding:6px 10px;font-weight:700}
+.slv td{border-bottom:1px solid #f0e2b4;padding:7px 10px;vertical-align:top}
+.slv td.k{font-weight:800;color:#c4421f;font-size:18px;text-align:center;width:28px}
+.slvn{font-size:15.5px;margin-top:10px;color:#4a4130}
+@media (max-width:760px){.slv,.slv tbody,.slv tr,.slv td{display:block;width:100%}.slv tr:first-child{display:none}.slv tr{border-bottom:2px solid #f0b429;padding:6px 0}.slv td{border:0;padding:2px 8px}.slv td.k{text-align:right}}
+.grp{margin-bottom:14px}.grp h5{font-size:15.5px;font-weight:800;color:var(--navy2);margin:0 0 8px}
+@media (max-width:760px){.cgrid{grid-template-columns:1fr}}
+.contact{margin-top:14px;background:#fff7e0;border:2px solid #f0b429;border-radius:18px;padding:16px 24px;display:flex;gap:16px;align-items:center}
+.contact .ic{font-size:34px;flex:none}
+.contact h2{font-size:20px;font-weight:800;line-height:1.3;color:var(--navy2)}
+.contact h2 a{direction:ltr;unicode-bidi:isolate;display:inline-block;text-decoration:underline;overflow-wrap:anywhere}
+.contact p{font-size:16.5px;line-height:1.45;margin-top:3px;color:#4a4130}
+@media (max-width:760px){.contact{padding:14px 16px}.contact .ic{display:none}.contact h2{font-size:18px}}
+.live{margin-top:-26px;position:relative;z-index:2;background:linear-gradient(120deg,#ff6a4d,#ff8f5a);color:#fff;border-radius:20px;padding:22px 28px;display:flex;gap:20px;align-items:center;box-shadow:0 14px 34px rgba(255,106,77,.35)}
+.live .ic{font-size:44px;flex:none}
+.live h2{font-size:26px;font-weight:800;line-height:1.2}
+.live p{font-size:16.5px;margin-top:4px;line-height:1.4}
+.live p a{text-decoration:underline;font-weight:700}
+.live .go{flex:none;margin-right:auto;background:#fff;color:#c4421f;font-weight:800;font-size:19px;padding:14px 26px;border-radius:14px;text-align:center;transition:transform .15s}
+.live .go:hover{transform:translateY(-2px)}
+.live .go small{display:block;font-weight:600;font-size:13px;color:#5d6a86}
+@media (max-width:760px){.live{flex-direction:column;align-items:stretch;padding:20px 18px;margin-top:-18px}.live .ic{display:none}.live .go{margin-right:0}}
+.solutions{margin-top:18px;background:#fff;border-radius:20px;padding:24px 28px;display:flex;gap:22px;align-items:flex-start;box-shadow:0 2px 0 var(--line),0 10px 30px rgba(22,33,58,.07);border-right:8px solid #6d4df2}
+.solutions .ic{font-size:44px;flex:none}
+.solutions h3{font-size:22px;font-weight:800;line-height:1.25}
+.solutions .tag{display:inline-block;background:#ece8ff;color:#4f33c9;border-radius:99px;padding:2px 14px;font-weight:700;font-size:14px;margin-bottom:6px}
+.solutions p{font-size:16px;color:var(--ink2);margin-top:6px}
+.solutions .warn{margin-top:12px;background:#fff7e0;border-right:5px solid #f0b429;border-radius:10px;padding:10px 14px;font-size:15px;color:#4a4130}
+.solutions .btn2{flex:none;margin-right:auto;align-self:center;background:#6d4df2;color:#fff;font-weight:800;font-size:17px;padding:12px 22px;border-radius:14px;text-align:center;transition:transform .15s}
+.solutions .btn2:hover{transform:translateY(-2px)}
+.solutions .btn2 small{display:block;font-weight:500;font-size:13px;opacity:.9}
+.lk.x .e{background:#e3f6ea}.lk.r .e{background:#fff0d2}
+.draft{display:inline-block;background:#fff0d2;border:1.5px dashed #a86703;color:#7a4a00;border-radius:8px;padding:0 8px;font-size:15px;vertical-align:middle;margin-right:6px}.rec1{margin-top:18px}.recbig{position:relative;aspect-ratio:16/9;width:100%;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 30% 20%,#3b5fa8,#16213a 70%);box-shadow:0 10px 26px rgba(15,27,51,.22);display:grid;place-items:center}.rb-in{display:flex;flex-direction:column;align-items:center;gap:8px;color:#d6e0f7;text-align:center}.rb-play{width:86px;height:86px;border-radius:50%;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.4);display:grid;place-items:center;font-size:34px;color:#fff;direction:ltr}.rb-in b{color:#fff;font-size:24px}.rb-in span:last-child{font-size:18px;color:#ffd37a;font-weight:700}.rec1 h4{margin-bottom:8px}.recrow{display:flex;gap:12px;flex-wrap:wrap}.recone{flex:1 1 220px;min-width:0;margin-bottom:12px}.reclab{font-size:15px;font-weight:700;color:var(--navy2);margin-bottom:5px}
+.recbox{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#0f1b33,#27447f);box-shadow:0 6px 18px rgba(15,27,51,.18)}
+.recbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.recwait{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#d6e0f7;text-align:center;font-size:15px}
+.recwait .play{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:22px;color:#fff;margin-bottom:6px;direction:ltr}
+.recwait b{color:#fff;font-size:17px}
+.todo{margin:0 30px 26px;background:#fff7e0;border:2px solid #f0b429;border-radius:18px;padding:18px 22px}
+.todo h4{font-size:18px;color:var(--navy2);margin-bottom:8px}
+.todo ol{padding-inline-start:22px;font-size:16px;line-height:1.6}
+.ups{list-style:none;margin-top:18px;background:var(--card);border-radius:18px;box-shadow:0 2px 0 var(--line);overflow:hidden}
+.ups li{display:flex;gap:14px;align-items:center;padding:11px 22px;border-bottom:1px solid var(--line);font-size:16.5px;font-weight:600}
+.ups li:last-child{border:0}
+.ups .un{flex:none;min-width:34px;padding:0 6px;white-space:nowrap;height:34px;border-radius:10px;background:#eef0f6;color:var(--navy2);display:grid;place-items:center;font-weight:800}
+.ups em{margin-right:auto;font-style:normal;color:var(--mut);font-size:14px;font-weight:500}
+@media (max-width:760px){.solutions{flex-direction:column;padding:20px 18px}.solutions .btn2{margin-right:0;width:100%}.todo{margin:0 18px 22px;padding:14px 16px}.ups li{padding:10px 14px}}
+
+.hero h1{font-size:64px}.hero .h1s{font-size:30px;font-weight:700;color:#7fe3d6;margin-top:6px;line-height:1.25}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-34px;position:relative;z-index:2}
+.fact{background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 2px 0 var(--line),0 14px 34px rgba(22,33,58,.1);border-top:6px solid var(--coral)}
+.fact:nth-child(2){border-top-color:#0f9d90}.fact:nth-child(3){border-top-color:#e8960c}.fact:nth-child(4){border-top-color:#27447f}
+.fact .fi{font-size:28px;line-height:1}.fact b{display:block;font-size:19px;font-weight:800;color:var(--navy2);margin-top:6px}.fact>span{display:block;font-size:15.5px;color:var(--ink2);line-height:1.4;margin-top:2px}
+.fact a{direction:ltr;unicode-bidi:isolate;display:inline-block;text-decoration:underline;overflow-wrap:anywhere}
+.halves{display:flex;gap:10px;margin-top:16px;font-weight:800;font-size:15.5px;flex-wrap:wrap}
+.halves>span{border-radius:99px;padding:5px 16px}.halves .a{background:#dff5f2;color:#087469}.halves .b{background:#ece8ff;color:#4f33c9}.halves .c{background:#fff0d2;color:#a86703}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.pc{position:relative;background:#fff;border-radius:16px;padding:14px 16px 34px;box-shadow:0 2px 0 var(--line);border-right:7px solid #0f9d90;display:block;color:inherit;text-decoration:none;min-height:132px;opacity:.78}
+.pc.b{border-right-color:#6d4df2}.pc.c{border-right-color:#e8960c}
+.pc.on{opacity:1;box-shadow:0 0 0 3px var(--coral),0 14px 30px rgba(255,106,77,.22);transition:transform .15s}.pc.on:hover{transform:translateY(-3px)}
+.pc .pn{display:inline-grid;place-items:center;min-width:32px;height:32px;border-radius:10px;background:var(--navy2);color:#fff;font-weight:800;font-size:17px;margin-bottom:6px}
+.pc b{display:block;font-size:17px;line-height:1.3;font-weight:800;color:var(--navy2)}.pc .pd{display:block;font-size:14.5px;color:var(--mut);line-height:1.35;margin-top:3px}
+.pc em{position:absolute;bottom:10px;right:16px;font-style:normal;font-size:13px;font-weight:800;color:var(--mut);background:#eef0f6;border-radius:99px;padding:1px 12px}
+.pc.on em{background:var(--coral);color:#fff}
+.cgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px}.cnote{font-size:15px;color:var(--mut);margin-top:8px}
+.grp{margin-bottom:14px}.grp h5{font-size:15.5px;font-weight:800;color:var(--navy2);margin:0 0 8px}
+@media (max-width:900px){.plan{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:repeat(2,1fr)}.cgrid{grid-template-columns:1fr}}
+@media (max-width:560px){.plan{grid-template-columns:1fr}.pc{min-height:0}.facts{grid-template-columns:1fr;margin-top:-22px}.hero h1{font-size:42px}.hero .h1s{font-size:22px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="kick"><span>המרכז האקדמי למשפט ולעסקים, רמת גן · החוג לחשבונאות · סמסטר א׳ תשפ״ז</span></div>
+<h1>סוגיות בחשבונאות</h1>
+<div class="h1s">ניתוח דוחות כספיים והערכת שווי חברות</div>
+<p class="lead">בקורסי החשבונאות הפיננסית לומדים לערוך דוחות כספיים. כאן הדוחות כבר מוכנים, ולומדים לקרוא אותם: בחצי הראשון מנתחים חברה באמצעות יחסים פיננסיים, ובחצי השני מעריכים כמה היא שווה. לכל הרצאה באתר: מצגת אינטראקטיבית עם גיליונות Excel חיים שבודקים את הנוסחה שלכם, סיכום כתוב להדפסה וקובץ תרגול.</p>
+<p class="meta">ד״ר שי צבאן · <span class="n">13</span> הרצאות</p>
+</div></header>
+<main class="wrap">
+<section class="facts">
+<div class="fact"><div class="fi">🎓</div><b>הציון</b><span>בחינה מסכמת: <span class="n">100%</span> מהציון. אין עבודות להגשה.</span></div>
+<div class="fact"><div class="fi">🗓️</div><b><span class="n">13</span> הרצאות</b><span>שש על ניתוח דוחות, ארבע על הערכת שווי, שלוש של תרגול וחזרה.</span></div>
+<div class="fact"><div class="fi">📊</div><b>פותרים ב-Excel</b><span>כל שאלה במצגת נפתרת בגיליון חי, עם רמזים ופתרון צעד אחר צעד.</span></div>
+<div class="fact"><div class="fi">✉️</div><b>פניות למרצה</b><span><a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a><br>יש לציין את שם המוסד ואת שם הקורס.</span></div>
+</section>
+<section class="block" id="course-files">
+<h2 class="sec">קובצי הקורס</h2>
+<div class="cgrid">
+<a class="lk s" href="materials/syllabus.pdf" target="_blank" rel="noopener"><span class="e">📋</span><span><b>סילבוס הקורס (PDF)</b><span class="d">תיאור הקורס, תוצרי הלמידה, תוכנית <span class="n">13</span> ההרצאות והרכב הציון.</span></span></a>
+<a class="lk s" href="materials/booklet.pdf" target="_blank" rel="noopener"><span class="e">📘</span><span><b>חוברת תרגילים (PDF)</b><span class="d">שאלות ברמת בחינה, לפי הרצאות. כרגע: <span class="n">8</span> תרגילים להרצאה <span class="n">1</span>. פרק חדש נוסף אחרי כל הרצאה.</span></span></a>
+<a class="lk x" href="materials/booklet-practice.xlsx" download><span class="e">📊</span><span><b>קובץ התרגול של החוברת (Excel)</b><span class="d">גיליון לכל תרגיל: הנתונים בתאים כחולים, ותאים צהובים ריקים לנוסחאות שלכם.</span></span></a>
+</div>
+</section>
+<section class="block" id="plan">
+<h2 class="sec">תוכנית הקורס: <span class="n">13</span> הרצאות</h2>
+<div class="halves"><span class="a">הרצאות <span class="n">1</span> עד <span class="n">6</span>: ניתוח דוחות כספיים</span><span class="b">הרצאות <span class="n">7</span> עד <span class="n">10</span>: הערכת שווי חברות</span><span class="c">הרצאות <span class="n">11</span> עד <span class="n">13</span>: תרגול וחזרה</span></div>
+<div class="plan"><a class="pc a on" href="#lesson-1"><span class="pn"><span class="n">1</span></span><b>מבוא לניתוח דוחות כספיים, ויחסי נזילות</b><span class="pd">יחס שוטף, יחס מהיר, יחס מזומן, הון חוזר ויחס התזרים</span><em>באתר</em></a><div class="pc a"><span class="pn"><span class="n">2</span></span><b>השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית</b><span class="pd">התחייבויות להון עצמי, כיסוי ריבית, שירות חוב</span><em>בקרוב</em></div><div class="pc a"><span class="pn"><span class="n">3</span></span><b>יחסי יעילות</b><span class="pd">מלאי, לקוחות, ספקים ומחזור המרת המזומן</span><em>בקרוב</em></div><div class="pc a"><span class="pn"><span class="n">4</span></span><b>יחסי רווחיות</b><span class="pd">רווח גולמי, תפעולי ונקי, והמודל העסקי</span><em>בקרוב</em></div><div class="pc a"><span class="pn"><span class="n">5</span></span><b>יחסי תשואה ויחסי שוק</b><span class="pd">תשואה על ההון, מכפיל רווח, תשואת דיבידנד</span><em>בקרוב</em></div><div class="pc a"><span class="pn"><span class="n">6</span></span><b>שאלת ניתוח מלאה ברמת בחינה</b><span class="pd">כל קבוצות היחסים על חברה אחת</span><em>בקרוב</em></div><div class="pc b"><span class="pn"><span class="n">7</span></span><b>הערכת שווי: הבסיס</b><span class="pd">שווי נכסי, מכפילים, ומבוא להיוון תזרימי מזומנים</span><em>בקרוב</em></div><div class="pc b"><span class="pn"><span class="n">8</span></span><b>היוון תזרימי מזומנים: דוגמה מלאה</b><span class="pd">תזרים חופשי, ערך טרמינלי ומחיר ההון</span><em>בקרוב</em></div><div class="pc b"><span class="pn"><span class="n">9</span></span><b>מחיר ההון לעומק</b><span class="pd">ביטא, התשואה הנדרשת על המניות ומחיר החוב</span><em>בקרוב</em></div><div class="pc b"><span class="pn"><span class="n">10</span></span><b>הערכת שווי מלאה, ושיפוט איכותני</b><span class="pd">שאלה ברמת בחינה, ומה משנה את השווי</span><em>בקרוב</em></div><div class="pc c"><span class="pn"><span class="n">11</span></span><b>שאלות קצרות בכל נושאי הקורס</b><span class="pd">הבנה ותיאוריה</span><em>בקרוב</em></div><div class="pc c"><span class="pn"><span class="n">12</span></span><b>בחינה לדוגמה</b><span class="pd">פתרון מלא, במבנה הבחינה</span><em>בקרוב</em></div><div class="pc c"><span class="pn"><span class="n">13</span></span><b>חזרה מסכמת</b><span class="pd">לקראת הבחינה</span><em>בקרוב</em></div></div>
+<p class="cnote">ייתכנו שינויים בסדר הנושאים ובקצב ההתקדמות במהלך הסמסטר. החומרים של כל הרצאה עולים לאתר כשהיא נלמדת.</p>
+</section>
+<section class="block">
+<h2 class="sec">ההרצאות</h2>
+<article class="lec" id="lesson-1">
+<div class="lec-head"><div class="lec-n">1</div><div><h3>מבוא לניתוח דוחות כספיים, ויחסי נזילות</h3><div class="sub">הרצאה <span class="n">1</span></div></div></div>
+<div class="lec-body">
+<div><h4>מה לומדים בהרצאה</h4><ul class="learn">
+<li>ההבדל בין עריכת דוחות לניתוח דוחות, ומהו יחס פיננסי</li>
+<li>יחס הוא אינדיקציה: השוואה לשנים קודמות, לענף ולהקשר</li>
+<li>שש קבוצות היחסים של הקורס</li>
+<li>נכסים שוטפים והתחייבויות שוטפות, כולל חלויות שוטפות</li>
+<li>יחס שוטף, יחס מהיר ויחס מזומן: חישוב, פרשנות, יתרונות וחסרונות</li>
+<li>הון חוזר, ויחס התזרים מפעילות שוטפת להתחייבויות השוטפות</li>
+<li>ניתוח נזילות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת</li>
+<li>תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״</li>
+</ul></div>
+<div><h4>חומרי ההרצאה</h4>
+<div class="grp"><h5>1. בהרצאה</h5><div class="links">
+<a class="lk p" href="lectures/lecture-1/presentation.html"><span class="e">🖥️</span><span><b>מצגת ההרצאה</b><span class="d"><span class="n">63</span> שקפים, וגיליון Excel חי ליד כל שאלה (<span class="n">16</span> גיליונות), עם בדיקה, רמזים ופתרון צעד אחר צעד.</span></span></a>
+</div></div>
+<div class="grp"><h5>2. אחרי ההרצאה, לחזרה</h5><div class="links">
+<a class="lk s" href="lectures/lecture-1/summary.pdf"><span class="e">📄</span><span><b>סיכום ההרצאה (PDF)</b><span class="d">כל תוכן המצגת במסמך אחד: הגדרות, השאלות והפתרון שלהן בגיליון, ומילון מושגים.</span></span></a>
+</div></div>
+<div class="grp"><h5>3. תרגול</h5><div class="links">
+<a class="lk x" href="materials/practice-1.xlsx" download><span class="e">📊</span><span><b>קובץ התרגול של הרצאה 1 (Excel)</b><span class="d">כל <span class="n">16</span> השאלות של המצגת, באותן כתובות תאים. התאים הצהובים ריקים: כותבים בהם את הנוסחאות.</span></span></a>
+<a class="lk s" href="materials/booklet.pdf" target="_blank" rel="noopener"><span class="e">📘</span><span><b>חוברת התרגילים: הרצאה 1</b><span class="d">תרגילים <span class="n">1-1</span> עד <span class="n">1-8</span>: שאלות ברמת בחינה, עם סעיף פרשנות.</span></span></a>
+</div></div>
+</div>
+</div>
+<div class="todo"><h4>📝 מה עושים בהרצאה <span class="n">1</span></h4><ol>
+<li><b>בהרצאה:</b> עובדים במצגת, בגיליונות שבתוך השקפים.</li>
+<li><b>אחרי ההרצאה:</b> קוראים את הסיכום, ופותרים בקובץ התרגול את השאלות של המצגת. בכל שאלה במצגת, ״צעד אחר צעד״ מראה את הפתרון.</li>
+<li><b>מהחוברת:</b> תרגילים <span class="n">1-1</span> עד <span class="n">1-8</span>, בקובץ התרגול של החוברת. את סעיפי הפרשנות כותבים במילים.</li>
+</ol></div>
+</article>
+</section>
+<footer>ד״ר שי צבאן · פניות במייל: <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>, עם שם המוסד ושם הקורס</footer>
+</main>
+</body>
+</html>
