@@ -119,7 +119,7 @@ for e in EX:
 def workbooks(exs, m=None):
     """The practice workbook and the solutions workbook, recalculated by LibreOffice and checked against Python, cell by cell."""
     tag = f'-m{m}' if m else ''
-    prac = os.path.join(REPO, 'materials', f'booklet{tag}-practice.xlsx'); solp = os.path.join(PRIV, f'booklet{tag}-solutions.xlsx')
+    prac = os.path.join(REPO, 'materials', f'booklet{tag}-practice.xlsx'); solp = os.path.join(REPO, 'materials', f'booklet{tag}-solutions.xlsx')
     build(prac, False, exs, m); build(solp, True, exs, m)
     d = tempfile.mkdtemp(dir=os.environ.get('TMPDIR'))
     subprocess.run(['soffice', '--headless', f'-env:UserInstallation=file://{d}/lo', '--convert-to', 'xlsx:Calc MS Excel 2007 XML', '--outdir', d, solp], capture_output=True, timeout=600)
@@ -229,7 +229,7 @@ def render(page, name):
     d = tempfile.mkdtemp(dir=os.environ.get('TMPDIR'))
     for f in ('david.ttf', 'davidbd.ttf'): shutil.copy(os.path.join(FONTS, f), d)
     open(os.path.join(d, 'b.html'), 'w', encoding='utf8').write(page)
-    out = os.path.join(PRIV if 'solutions' in name else os.path.join(REPO, 'materials'), name)
+    out = os.path.join(REPO, 'materials', name)
     subprocess.run([CHROME, '--headless=new', '--disable-gpu', '--no-sandbox', f'--user-data-dir={d}/p', '--no-pdf-header-footer', '--virtual-time-budget=6000', f'--print-to-pdf={out}', 'file://' + d + '/b.html'], capture_output=True, timeout=120)
     shutil.rmtree(d, True)
     import fitz

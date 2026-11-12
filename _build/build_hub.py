@@ -1,5 +1,5 @@
 # Course hub. Run: python3 build_hub.py  ->  ../index.html
-# No recording boxes yet (Shay: add them when the first recording exists). Booklet solutions are not linked: they are not published.
+# No recording boxes yet (Shay: add them when the first recording exists). Solutions are published and linked (Shay approved 2026-11-12).
 import os, re
 H = os.path.dirname(os.path.abspath(__file__))
 n = lambda s: f'<span class="n">{s}</span>'
@@ -77,6 +77,8 @@ html = f'''<!doctype html>
 {lk('s', 'materials/syllabus.pdf', '📋', 'סילבוס הקורס (PDF)', f'תיאור הקורס, תוצרי הלמידה, תוכנית {n(13)} ההרצאות והרכב הציון.')}
 {lk('s', 'materials/booklet.pdf', '📘', 'חוברת תרגילים (PDF)', f'שאלות ברמת בחינה, לפי הרצאות. כרגע: {n(NB)} תרגילים להרצאה {n(1)}. פרק חדש נוסף אחרי כל הרצאה.')}
 {lk('x', 'materials/booklet-practice.xlsx', '📊', 'קובץ התרגול של החוברת (Excel)', 'גיליון לכל תרגיל: הנתונים בתאים כחולים, ותאים צהובים ריקים לנוסחאות שלכם.', True)}
+{lk('r', 'materials/booklet-solutions.pdf', '✅', 'פתרונות החוברת (PDF)', 'לכל תרגיל: הנוסחה בכל תא, התוצאה והמסקנה. פותחים רק אחרי שפותרים.')}
+{lk('r', 'materials/booklet-solutions.xlsx', '✅', 'קובץ הפתרונות של החוברת (Excel)', 'אותם גיליונות, עם נוסחאות חיות.', True)}
 </div>
 </section>
 <section class="block" id="plan">
@@ -110,13 +112,15 @@ html = f'''<!doctype html>
 <div class="grp"><h5>3. תרגול</h5><div class="links">
 <a class="lk x" href="materials/practice-1.xlsx" download><span class="e">📊</span><span><b>קובץ התרגול של הרצאה 1 (Excel)</b><span class="d">כל {n(NX)} השאלות של המצגת, באותן כתובות תאים. התאים הצהובים ריקים: כותבים בהם את הנוסחאות.</span></span></a>
 <a class="lk s" href="materials/booklet.pdf" target="_blank" rel="noopener"><span class="e">📘</span><span><b>חוברת התרגילים: הרצאה 1</b><span class="d">תרגילים {n('1-1')} עד {n(f'1-{NB}')}: שאלות ברמת בחינה, עם סעיף פרשנות.</span></span></a>
+<a class="lk r" href="materials/practice-1-solutions.xlsx" download><span class="e">✅</span><span><b>קובץ הפתרונות של הרצאה 1 (Excel)</b><span class="d">גיליונות המצגת עם נוסחאות חיות. פותחים רק אחרי שפותרים.</span></span></a>
+<a class="lk r" href="materials/booklet-solutions.pdf" target="_blank" rel="noopener"><span class="e">✅</span><span><b>פתרונות החוברת (PDF)</b><span class="d">הנוסחה בכל תא, התוצאה והמסקנה.</span></span></a>
 </div></div>
 </div>
 </div>
 <div class="todo"><h4>📝 מה עושים בהרצאה {n(1)}</h4><ol>
 <li><b>בהרצאה:</b> עובדים במצגת, בגיליונות שבתוך השקפים.</li>
 <li><b>אחרי ההרצאה:</b> קוראים את הסיכום, ופותרים בקובץ התרגול את השאלות של המצגת. בכל שאלה במצגת, ״צעד אחר צעד״ מראה את הפתרון.</li>
-<li><b>מהחוברת:</b> תרגילים {n('1-1')} עד {n(f'1-{NB}')}, בקובץ התרגול של החוברת. את סעיפי הפרשנות כותבים במילים.</li>
+<li><b>מהחוברת:</b> תרגילים {n('1-1')} עד {n(f'1-{NB}')}, בקובץ התרגול של החוברת. את סעיפי הפרשנות כותבים במילים, ורק אחר כך בודקים מול הפתרונות.</li>
 </ol></div>
 </article>
 </section>

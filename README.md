@@ -12,5 +12,5 @@
   - `python3 test_deck.py`: בדיקה בדפדפן ללא ממשק: שקפים שחורגים, כיוון מספרים, וכל גיליון: דוחה תשובה שגויה ומקבל נוסחה נכונה.
   - `python3 build_summary.py 1`, `python3 build_syllabus.py`, `python3 build_hub.py`.
   - `python3 build_xlsx.py 1` ו-`python3 build_booklet.py`: קובצי התרגול. כל תשובה נבדקת מול חישוב מחדש ב-LibreOffice.
-  - הפתרונות (חוברת וקובץ התרגול) נכתבים לתיקייה `_private`, שאינה חלק מהמאגר.
+  - הפתרונות מתפרסמים ב-`materials/`. מקור התרגילים של החוברת (`booklet.py`) נשאר בתיקייה `_private`, שאינה חלק מהמאגר.
   - פונטי David נטענים מ-`../iit-build/fonts` ואינם נשמרים כאן.

@@ -106,7 +106,7 @@ os.makedirs(OUT, exist_ok=True)
 pr, so = f'practice-{LESSON}.xlsx', f'practice-{LESSON}-solutions.xlsx'
 build(os.path.join(OUT, pr), False)
 PRIV = os.path.join(H, '..', '_private'); os.makedirs(PRIV, exist_ok=True)
-raw = os.path.join(PRIV, so)   # NOT published: Shay decides when solutions go up (the _private folder is gitignored)
+raw = os.path.join(OUT, so)   # published (Shay approved 2026-11-12)
 build(raw, True)
 d = tempfile.mkdtemp(dir=os.environ.get('TMPDIR'))
 pr_ = subprocess.Popen(['soffice', '--headless', f'-env:UserInstallation=file://{d}/lo', '--convert-to', 'xlsx:Calc MS Excel 2007 XML', '--outdir', d, raw], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
