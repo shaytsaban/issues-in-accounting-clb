@@ -1,5 +1,5 @@
 # Course hub. Run: python3 build_hub.py  ->  ../index.html
-# No recording boxes yet (Shay: add them when the first recording exists). Solutions are published and linked (Shay approved 2026-11-12).
+# Lecture 1 has a recording placeholder (Shay, 2026-11-12: 'יועלה לאחר המפגש'); replace it with the embed when he sends the link. Solutions are published and linked (Shay approved 2026-11-12).
 import os, re
 H = os.path.dirname(os.path.abspath(__file__))
 n = lambda s: f'<span class="n">{s}</span>'
@@ -101,7 +101,9 @@ html = f'''<!doctype html>
 <li>הון חוזר, ויחס התזרים מפעילות שוטפת להתחייבויות השוטפות</li>
 <li>ניתוח נזילות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת</li>
 <li>תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״</li>
-</ul></div>
+</ul>
+<div class="rec1" id="rec-1"><h4>הקלטת ההרצאה</h4><div class="recbig"><div class="rb-in"><span class="rb-play">▶</span><b>הקלטת הרצאה 1</b><span>תועלה לאחר המפגש</span></div></div></div>
+</div>
 <div><h4>חומרי ההרצאה</h4>
 <div class="grp"><h5>1. בהרצאה</h5><div class="links">
 <a class="lk p" href="lectures/lecture-1/presentation.html"><span class="e">🖥️</span><span><b>מצגת ההרצאה</b><span class="d">{n(NS)} שקפים, וגיליון Excel חי ליד כל שאלה ({n(NX)} גיליונות), עם בדיקה, רמזים ופתרון צעד אחר צעד.</span></span></a>
