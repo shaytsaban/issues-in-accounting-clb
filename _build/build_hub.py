@@ -1,5 +1,5 @@
 # Course hub. Run: python3 build_hub.py  ->  ../index.html
-# Lecture 1 has a recording placeholder (Shay, 2026-11-12: 'יועלה לאחר המפגש'); replace it with the embed when he sends the link. Solutions are published and linked (Shay approved 2026-11-12).
+# Lecture 1 (taught 12.11.2026) embeds its recording, YouTube Fv4rRaQQyaY. A lecture without a recording yet gets the .recbig placeholder 'תועלה לאחר המפגש'. Solutions are published and linked (Shay approved 2026-11-12).
 import os, re
 H = os.path.dirname(os.path.abspath(__file__))
 n = lambda s: f'<span class="n">{s}</span>'
@@ -90,7 +90,7 @@ html = f'''<!doctype html>
 <section class="block">
 <h2 class="sec">ההרצאות</h2>
 <article class="lec" id="lesson-1">
-<div class="lec-head"><div class="lec-n">1</div><div><h3>מבוא לניתוח דוחות כספיים, ויחסי נזילות</h3><div class="sub">הרצאה {n(1)}</div></div></div>
+<div class="lec-head"><div class="lec-n">1</div><div><h3>מבוא לניתוח דוחות כספיים, ויחסי נזילות</h3><div class="sub">הרצאה {n(1)} · {n('12.11.2026')}</div></div></div>
 <div class="lec-body">
 <div><h4>מה לומדים בהרצאה</h4><ul class="learn">
 <li>ההבדל בין עריכת דוחות לניתוח דוחות, ומהו יחס פיננסי</li>
@@ -102,7 +102,7 @@ html = f'''<!doctype html>
 <li>ניתוח נזילות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת</li>
 <li>תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״</li>
 </ul>
-<div class="rec1" id="rec-1"><h4>הקלטת ההרצאה</h4><div class="recbig"><div class="rb-in"><span class="rb-play">▶</span><b>הקלטת הרצאה 1</b><span>תועלה לאחר המפגש</span></div></div></div>
+<div class="rec1" id="rec-1"><h4>הקלטת ההרצאה, {n('12.11.2026')}</h4><div class="recbox"><iframe src="https://www.youtube-nocookie.com/embed/Fv4rRaQQyaY" title="הקלטת הרצאה 1, 12.11.2026" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
 </div>
 <div><h4>חומרי ההרצאה</h4>
 <div class="grp"><h5>1. בהרצאה</h5><div class="links">
