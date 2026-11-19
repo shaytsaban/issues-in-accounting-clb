@@ -840,3 +840,5 @@ table.xhead th,table.xhead td{font-size:16.5px}
 .rlist b{color:var(--navy2);font-weight:800}.rlist i{font-style:normal;color:var(--coral);font-weight:800}
 .mc1.wside{margin-top:8px}.mc1.wside .mc .q{font-size:23px;margin-bottom:6px}.mc1.wside .mc .o{font-size:19.5px;padding:7px 14px;margin-top:6px}.mc1.wside .mc .w{font-size:18.5px}
 .mc1side .tbl2.cen{font-size:18px}.mc1side .tbl2.cen td{padding:5px 10px}
+.learn.lim4{gap:12px;margin-top:4px}.learn.lim4 .lcard{padding:10px 18px}.learn.lim4 .lcard b{font-size:23px}.learn.lim4 .lcard p{font-size:19.5px;line-height:1.4}.learn.lim4 .lcard p.ex{margin-top:5px;color:#44506b;font-size:18.5px}
+.learn.lim4 .lcard p.ex b{display:inline;font-size:inherit;margin:0}
