@@ -141,7 +141,7 @@ html = f'''<!doctype html>
 </section>
 <section class="block">
 <h2 class="sec">ההרצאות</h2>
-{"".join(card(k) for k in sorted(LEC, reverse=True))}
+{"".join(card(k) for k in sorted(LEC))}
 </section>
 <footer>ד״ר שי צבאן · פניות במייל: <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>, עם שם המוסד ושם הקורס</footer>
 </main>
