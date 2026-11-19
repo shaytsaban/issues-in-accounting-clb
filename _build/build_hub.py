@@ -3,11 +3,63 @@
 import os, re
 H = os.path.dirname(os.path.abspath(__file__))
 n = lambda s: f'<span class="n">{s}</span>'
-D = open(os.path.join(H, '..', 'lectures', 'lecture-1', 'presentation.html'), encoding='utf8').read()
-NS, NX, NM = D.count('<section class="slide'), D.count('act xlq'), D.count('class="mc"')
+def deck(k):
+    d = open(os.path.join(H, '..', 'lectures', f'lecture-{k}', 'presentation.html'), encoding='utf8').read()
+    return d.count('<section class="slide'), d.count('act xlq')
+
+
 _ns = {}
 exec(open(os.path.join(H, '..', '_private', 'booklet.py'), encoding='utf8').read(), _ns)   # gitignored: holds the answer key
+MEET = _ns['MEET']
 NB = len(_ns['EX'])
+# the lectures that are on the site: title, date, what is learnt, recording (YouTube id, or '' for the placeholder), what to do
+LEC = {
+ 1: dict(t='מבוא לניתוח דוחות כספיים, ויחסי נזילות', date='12.11.2026', rec='Fv4rRaQQyaY', learn=[
+     'ההבדל בין עריכת דוחות לניתוח דוחות, ומהו יחס פיננסי', 'יחס הוא אינדיקציה: השוואה לשנים קודמות, לענף ולהקשר', 'שש קבוצות היחסים של הקורס', 'נכסים שוטפים והתחייבויות שוטפות, כולל חלויות שוטפות',
+     'יחס שוטף, יחס מהיר ויחס מזומן: חישוב, פרשנות, יתרונות וחסרונות', 'הון חוזר, ויחס התזרים מפעילות שוטפת להתחייבויות השוטפות', 'ניתוח נזילות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת',
+     'תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״']),
+ 2: dict(t='השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית', date='19.11.2026', rec='', learn=[
+     'רענון: חמשת מדדי הנזילות על חברה אחת', 'מה קורה ליחס השוטף כשנוטלים הלוואה או פורעים חוב, מעל 1 ומתחת ל-1', 'ייפוי מאזן: למה יחס של יום אחד אינו מספיק', 'מקורות המימון: התחייבויות והון עצמי, ויחס התחייבויות להון עצמי',
+     'יחס התחייבויות לנכסים, יחס הון עצמי לנכסים, ואמת מידה פיננסית', 'יחס כיסוי ריבית: האם הרווח התפעולי מכסה את הריבית', 'יחס שירות חוב: ריבית ועוד החזר קרן', 'ניתוח איתנות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת',
+     'תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״']),
+}
+
+
+def card(k):
+    L = LEC[k]; ns, nx = deck(k); ids = MEET[k]
+    rec = (f'<div class="recbox"><iframe src="https://www.youtube-nocookie.com/embed/{L["rec"]}" title="הקלטת הרצאה {k}, {L["date"]}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
+           if L['rec'] else f'<div class="recbig"><div class="rb-in"><span class="rb-play">▶</span><b>הקלטת הרצאה {k}</b><span>תועלה לאחר המפגש</span></div></div>')
+    return f'''<article class="lec" id="lesson-{k}">
+<div class="lec-head"><div class="lec-n">{k}</div><div><h3>{L["t"]}</h3><div class="sub">הרצאה {n(k)} · {n(L["date"])}</div></div></div>
+<div class="lec-body">
+<div><h4>מה לומדים בהרצאה</h4><ul class="learn">
+{"".join("<li>" + x + "</li>" for x in L["learn"])}
+</ul>
+<div class="rec1" id="rec-{k}"><h4>הקלטת ההרצאה, {n(L["date"])}</h4>{rec}</div>
+</div>
+<div><h4>חומרי ההרצאה</h4>
+<div class="grp"><h5>1. בהרצאה</h5><div class="links">
+<a class="lk p" href="lectures/lecture-{k}/presentation.html"><span class="e">🖥️</span><span><b>מצגת ההרצאה</b><span class="d">{n(ns)} שקפים, וגיליון Excel חי ליד כל שאלה ({n(nx)} גיליונות), עם בדיקה, רמזים ופתרון צעד אחר צעד.</span></span></a>
+</div></div>
+<div class="grp"><h5>2. אחרי ההרצאה, לחזרה</h5><div class="links">
+<a class="lk s" href="lectures/lecture-{k}/summary.pdf"><span class="e">📄</span><span><b>סיכום ההרצאה (PDF)</b><span class="d">כל תוכן המצגת במסמך אחד: הגדרות, השאלות והפתרון שלהן בגיליון, ומילון מושגים.</span></span></a>
+</div></div>
+<div class="grp"><h5>3. תרגול</h5><div class="links">
+<a class="lk x" href="materials/practice-{k}.xlsx" download><span class="e">📊</span><span><b>קובץ התרגול של הרצאה {k} (Excel)</b><span class="d">כל {n(nx)} השאלות של המצגת, באותן כתובות תאים. התאים הצהובים ריקים: כותבים בהם את הנוסחאות.</span></span></a>
+<a class="lk s" href="materials/booklet.pdf" target="_blank" rel="noopener"><span class="e">📘</span><span><b>חוברת התרגילים: הרצאה {k}</b><span class="d">תרגילים {n(ids[0])} עד {n(ids[-1])}: שאלות ברמת בחינה, עם סעיף פרשנות.</span></span></a>
+<a class="lk r" href="materials/practice-{k}-solutions.xlsx" download><span class="e">✅</span><span><b>קובץ הפתרונות של הרצאה {k} (Excel)</b><span class="d">גיליונות המצגת עם נוסחאות חיות. פותחים רק אחרי שפותרים.</span></span></a>
+<a class="lk r" href="materials/booklet-solutions.pdf" target="_blank" rel="noopener"><span class="e">✅</span><span><b>פתרונות החוברת (PDF)</b><span class="d">הנוסחה בכל תא, התוצאה והמסקנה.</span></span></a>
+</div></div>
+</div>
+</div>
+<div class="todo"><h4>📝 מה עושים בהרצאה {n(k)}</h4><ol>
+<li><b>בהרצאה:</b> עובדים במצגת, בגיליונות שבתוך השקפים.</li>
+<li><b>אחרי ההרצאה:</b> קוראים את הסיכום, ופותרים בקובץ התרגול את השאלות של המצגת. בכל שאלה במצגת, ״צעד אחר צעד״ מראה את הפתרון.</li>
+<li><b>מהחוברת:</b> תרגילים {n(ids[0])} עד {n(ids[-1])}, בקובץ התרגול של החוברת. את סעיפי הפרשנות כותבים במילים, ורק אחר כך בודקים מול הפתרונות.</li>
+</ol></div>
+</article>'''
+
+
 PLAN = [(1, 'מבוא לניתוח דוחות כספיים, ויחסי נזילות', 'יחס שוטף, יחס מהיר, יחס מזומן, הון חוזר ויחס התזרים', 'a'),
         (2, 'השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית', 'התחייבויות להון עצמי, כיסוי ריבית, שירות חוב', 'a'),
         (3, 'יחסי יעילות', 'מלאי, לקוחות, ספקים ומחזור המרת המזומן', 'a'),
@@ -21,7 +73,7 @@ PLAN = [(1, 'מבוא לניתוח דוחות כספיים, ויחסי נזיל�
         (11, 'שאלות קצרות בכל נושאי הקורס', 'הבנה ותיאוריה', 'c'),
         (12, 'בחינה לדוגמה', 'פתרון מלא, במבנה הבחינה', 'c'),
         (13, 'חזרה מסכמת', 'לקראת הבחינה', 'c')]
-plan = ''.join((f'<a class="pc {k} on" href="#lesson-1">' if i == 1 else f'<div class="pc {k}">') + f'<span class="pn">{n(i)}</span><b>{t}</b><span class="pd">{d}</span><em>{"באתר" if i == 1 else "בקרוב"}</em>' + ('</a>' if i == 1 else '</div>') for i, t, d, k in PLAN)
+plan = ''.join((f'<a class="pc {k} on" href="#lesson-{i}">' if i in LEC else f'<div class="pc {k}">') + f'<span class="pn">{n(i)}</span><b>{t}</b><span class="pd">{d}</span><em>{"באתר" if i in LEC else "בקרוב"}</em>' + ('</a>' if i in LEC else '</div>') for i, t, d, k in PLAN)
 css = open(os.path.join(H, 'shell', 'hub.css'), encoding='utf8').read()
 css += '''
 .hero h1{font-size:64px}.hero .h1s{font-size:30px;font-weight:700;color:#7fe3d6;margin-top:6px;line-height:1.25}
@@ -75,7 +127,7 @@ html = f'''<!doctype html>
 <h2 class="sec">קובצי הקורס</h2>
 <div class="cgrid">
 {lk('s', 'materials/syllabus.pdf', '📋', 'סילבוס הקורס (PDF)', f'תיאור הקורס, תוצרי הלמידה, תוכנית {n(13)} ההרצאות והרכב הציון.')}
-{lk('s', 'materials/booklet.pdf', '📘', 'חוברת תרגילים (PDF)', f'שאלות ברמת בחינה, לפי הרצאות. כרגע: {n(NB)} תרגילים להרצאה {n(1)}. פרק חדש נוסף אחרי כל הרצאה.')}
+{lk('s', 'materials/booklet.pdf', '📘', 'חוברת תרגילים (PDF)', f'שאלות ברמת בחינה, לפי הרצאות. כרגע: {n(NB)} תרגילים להרצאות {n(1)} ו-{n(2)}. פרק חדש נוסף אחרי כל הרצאה.')}
 {lk('x', 'materials/booklet-practice.xlsx', '📊', 'קובץ התרגול של החוברת (Excel)', 'גיליון לכל תרגיל: הנתונים בתאים כחולים, ותאים צהובים ריקים לנוסחאות שלכם.', True)}
 {lk('r', 'materials/booklet-solutions.pdf', '✅', 'פתרונות החוברת (PDF)', 'לכל תרגיל: הנוסחה בכל תא, התוצאה והמסקנה. פותחים רק אחרי שפותרים.')}
 {lk('r', 'materials/booklet-solutions.xlsx', '✅', 'קובץ הפתרונות של החוברת (Excel)', 'אותם גיליונות, עם נוסחאות חיות.', True)}
@@ -89,42 +141,7 @@ html = f'''<!doctype html>
 </section>
 <section class="block">
 <h2 class="sec">ההרצאות</h2>
-<article class="lec" id="lesson-1">
-<div class="lec-head"><div class="lec-n">1</div><div><h3>מבוא לניתוח דוחות כספיים, ויחסי נזילות</h3><div class="sub">הרצאה {n(1)} · {n('12.11.2026')}</div></div></div>
-<div class="lec-body">
-<div><h4>מה לומדים בהרצאה</h4><ul class="learn">
-<li>ההבדל בין עריכת דוחות לניתוח דוחות, ומהו יחס פיננסי</li>
-<li>יחס הוא אינדיקציה: השוואה לשנים קודמות, לענף ולהקשר</li>
-<li>שש קבוצות היחסים של הקורס</li>
-<li>נכסים שוטפים והתחייבויות שוטפות, כולל חלויות שוטפות</li>
-<li>יחס שוטף, יחס מהיר ויחס מזומן: חישוב, פרשנות, יתרונות וחסרונות</li>
-<li>הון חוזר, ויחס התזרים מפעילות שוטפת להתחייבויות השוטפות</li>
-<li>ניתוח נזילות מלא: שנתיים, ממוצע ענפי ומסקנה מנומקת</li>
-<li>תרגול עצמי: שישה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״</li>
-</ul>
-<div class="rec1" id="rec-1"><h4>הקלטת ההרצאה, {n('12.11.2026')}</h4><div class="recbox"><iframe src="https://www.youtube-nocookie.com/embed/Fv4rRaQQyaY" title="הקלטת הרצאה 1, 12.11.2026" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
-</div>
-<div><h4>חומרי ההרצאה</h4>
-<div class="grp"><h5>1. בהרצאה</h5><div class="links">
-<a class="lk p" href="lectures/lecture-1/presentation.html"><span class="e">🖥️</span><span><b>מצגת ההרצאה</b><span class="d">{n(NS)} שקפים, וגיליון Excel חי ליד כל שאלה ({n(NX)} גיליונות), עם בדיקה, רמזים ופתרון צעד אחר צעד.</span></span></a>
-</div></div>
-<div class="grp"><h5>2. אחרי ההרצאה, לחזרה</h5><div class="links">
-<a class="lk s" href="lectures/lecture-1/summary.pdf"><span class="e">📄</span><span><b>סיכום ההרצאה (PDF)</b><span class="d">כל תוכן המצגת במסמך אחד: הגדרות, השאלות והפתרון שלהן בגיליון, ומילון מושגים.</span></span></a>
-</div></div>
-<div class="grp"><h5>3. תרגול</h5><div class="links">
-<a class="lk x" href="materials/practice-1.xlsx" download><span class="e">📊</span><span><b>קובץ התרגול של הרצאה 1 (Excel)</b><span class="d">כל {n(NX)} השאלות של המצגת, באותן כתובות תאים. התאים הצהובים ריקים: כותבים בהם את הנוסחאות.</span></span></a>
-<a class="lk s" href="materials/booklet.pdf" target="_blank" rel="noopener"><span class="e">📘</span><span><b>חוברת התרגילים: הרצאה 1</b><span class="d">תרגילים {n('1-1')} עד {n(f'1-{NB}')}: שאלות ברמת בחינה, עם סעיף פרשנות.</span></span></a>
-<a class="lk r" href="materials/practice-1-solutions.xlsx" download><span class="e">✅</span><span><b>קובץ הפתרונות של הרצאה 1 (Excel)</b><span class="d">גיליונות המצגת עם נוסחאות חיות. פותחים רק אחרי שפותרים.</span></span></a>
-<a class="lk r" href="materials/booklet-solutions.pdf" target="_blank" rel="noopener"><span class="e">✅</span><span><b>פתרונות החוברת (PDF)</b><span class="d">הנוסחה בכל תא, התוצאה והמסקנה.</span></span></a>
-</div></div>
-</div>
-</div>
-<div class="todo"><h4>📝 מה עושים בהרצאה {n(1)}</h4><ol>
-<li><b>בהרצאה:</b> עובדים במצגת, בגיליונות שבתוך השקפים.</li>
-<li><b>אחרי ההרצאה:</b> קוראים את הסיכום, ופותרים בקובץ התרגול את השאלות של המצגת. בכל שאלה במצגת, ״צעד אחר צעד״ מראה את הפתרון.</li>
-<li><b>מהחוברת:</b> תרגילים {n('1-1')} עד {n(f'1-{NB}')}, בקובץ התרגול של החוברת. את סעיפי הפרשנות כותבים במילים, ורק אחר כך בודקים מול הפתרונות.</li>
-</ol></div>
-</article>
+{"".join(card(k) for k in sorted(LEC, reverse=True))}
 </section>
 <footer>ד״ר שי צבאן · פניות במייל: <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>, עם שם המוסד ושם הקורס</footer>
 </main>
@@ -134,4 +151,4 @@ html = f'''<!doctype html>
 for bad in ('—', '־', '–'):
     assert bad not in html, bad
 open(os.path.join(H, '..', 'index.html'), 'w', encoding='utf8').write(html)
-print('hub', len(html), 'slides', NS, 'sheets', NX, 'booklet', NB)
+print('hub', len(html), 'lectures', sorted(LEC), 'booklet', NB)

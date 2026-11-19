@@ -55,6 +55,13 @@ def RDEF(n, he, en, num, den, key=None, pct=False, op='÷'):
     return ST(n, inner, cls='rdef pop') if n else f'<div class="rdef">{inner}</div>'
 
 
+def RLIST(items):
+    """How each ratio on the slide is computed, as a compact list beside the question (nobody should page back): (name, numerator, denominator)."""
+    if MODE == 'pdf':
+        return '<div class="band prdef">' + ' · '.join(f'<b>{TX(a)}</b> = {TX(b)} חלקי {TX(c)}' for a, b, c in items) + '</div>'
+    return '<div class="rlist">' + ''.join(f'<div><b>{TX(a)}</b><span>{TX(b)} <i>חלקי</i> {TX(c)}</span></div>' for a, b, c in items) + '</div>'
+
+
 def GAUGE(val, n=0, lo=0.0, hi=3.0, cap='', zones=((0, .8, '#e0454f'), (.8, 1.0, '#f0b429'), (1.0, 3.0, '#25a65f')), ticks=(0, 1, 2, 3)):
     """A half-circle gauge. The needle swings to the value when the step is revealed."""
     import math

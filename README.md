@@ -6,6 +6,7 @@
 
 - `index.html`: דף הבית, עם תוכנית 13 ההרצאות.
 - `lectures/lecture-1/`: מצגת הרצאה 1 (`presentation.html`) וסיכום PDF (`summary.pdf`): מבוא לניתוח דוחות כספיים ויחסי נזילות.
+- `lectures/lecture-2/`: הרצאה 2 (19.11.2026): השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית. `python3 build_deck.py 2`, `python3 build_summary.py 2`, `python3 build_xlsx.py 2`.
 - `materials/`: סילבוס, חוברת תרגילים לפי הרצאות (`booklet.pdf`), קובץ התרגול שלה, וקובץ התרגול של הרצאה 1.
 - `_build/`: מקורות הבנייה. התוכן כתוב פעם אחת (`content_*.py`) ומזין גם את המצגת וגם את הסיכום.
   - `python3 build_deck.py 1`: המצגת. גיליונות ה-Excel החיים רצים על `xl.js`.

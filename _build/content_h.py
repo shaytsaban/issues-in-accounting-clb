@@ -56,11 +56,16 @@ def POP(n, html, cls=''):
     return ST(n, html, cls='pop ' + cls)
 
 
-def MC1(sid, title, q, opts, a, why, art=None, story=None):
-    """One multiple choice question on its own slide, in large type, with an illustration beside it."""
+def MC1(sid, title, q, opts, a, why, art=None, story=None, side=None, foot=None):
+    """One multiple choice question on its own slide, in large type. Beside it: an illustration, or (side=) the table the question rests on,
+    so nobody pages back (Shay, 2026-11-19). foot: the footnote of a judgment question, marked with an asterisk."""
     item = mc(sid + '-q', q, opts, a, why)
+    ft = f'<p class="mcfoot">* {TX(foot)}</p>' if foot else ''
     if MODE == 'pdf':
-        S(sid, title, title, (f'<p>{TX(story)}</p>' if story else '') + item); return
+        S(sid, title, title, (side or '') + (f'<p>{TX(story)}</p>' if story else '') + item + ft); return
+    if side:
+        st = f'<div class="card qstem mc1s"><p>{TX(story)}</p></div>' if story else ''
+        S(sid, title, title, f'<div class="mc1 wside"><div class="mc1side">{side}</div><div class="mc1q">{st}{item}{ft}</div></div>', kick=f'חלק {CUR[0]} · שאלה אחת'); return
     side = f'<div class="mc1art">{_svg(TOONS.get(art, art))}</div>' if art else ''
     st = f'<div class="card qstem mc1s"><p>{TX(story)}</p></div>' if story else ''
     S(sid, title, title, f'<div class="mc1">{side}<div class="mc1q">{st}{item}</div></div>', kick=f'חלק {CUR[0]} · שאלה אחת')

@@ -7,13 +7,17 @@ COURSE_SUB = 'ניתוח דוחות כספיים והערכת שווי חברו�
 INST = 'המרכז האקדמי למשפט ולעסקים, רמת גן · החוג לחשבונאות'
 SEM = 'סמסטר א׳ תשפ״ז'
 LESSON = globals().get('LESSON', 1)
-TOTAL_PARTS = {1: 7}[LESSON]
+TOTAL_PARTS = {1: 7, 2: 8}[LESSON]
 # per lesson: deck title, subtitle, chips, cover line and the next meeting. Dates are added after each meeting is taught.
 LMETA = {
  1: dict(date='12.11.2026', h1=('ניתוח דוחות כספיים:', 'יחסי נזילות'), title='מבוא לניתוח דוחות כספיים ויחסי נזילות',
          sub='מה ההבדל בין עריכת דוחות לניתוח שלהם, מהו יחס פיננסי, שש קבוצות היחסים של הקורס, והקבוצה הראשונה לעומק: האם החברה תעמוד בהתחייבויות של השנה הקרובה.', chip='כל שאלה נפתרת ב-Excel',
          cover='מעריכת דוחות לניתוח דוחות; יחס פיננסי כאינדיקציה; שש קבוצות היחסים; נכסים שוטפים והתחייבויות שוטפות; יחס שוטף; יחס מהיר; יחס מזומן; הון חוזר; יחס תזרים המזומנים מפעילות שוטפת להתחייבויות השוטפות; ניתוח נזילות מלא לאורך שנתיים ומול הענף; תרגול עצמי.',
-         next_h='השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית', next_t='פותחים ברענון: מה קורה ליחס השוטף כשהחברה נוטלת הלוואה רגע לפני תאריך המאזן. משם עוברים לטווח הארוך: התחייבויות להון עצמי, התחייבויות לנכסים, כיסוי ריבית ושירות חוב.')}[LESSON]
+         next_h='השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית', next_t='פותחים ברענון: מה קורה ליחס השוטף כשהחברה נוטלת הלוואה רגע לפני תאריך המאזן. משם עוברים לטווח הארוך: התחייבויות להון עצמי, התחייבויות לנכסים, כיסוי ריבית ושירות חוב.'),
+ 2: dict(date='19.11.2026', h1=('עסקאות והיחס השוטף,', 'ויחסי איתנות פיננסית'), title='השפעת עסקאות על היחס השוטף, ויחסי איתנות פיננסית',
+         sub='רענון קצר של יחסי הנזילות, מה קורה ליחס השוטף כשנוטלים הלוואה או פורעים חוב, ואז הטווח הארוך: כמה מהחברה ממומן בחוב, והאם הרווח מכסה את הריבית ואת החזר הקרן.', chip='כל שאלה נפתרת ב-Excel',
+         cover='רענון של הרצאה 1; השפעת הלוואה ופירעון על היחס השוטף, מעל 1 ומתחת ל-1; מקורות המימון: התחייבויות והון עצמי; יחס התחייבויות להון עצמי; יחס התחייבויות לנכסים ויחס הון עצמי לנכסים; יחס כיסוי ריבית; יחס שירות חוב; ניתוח איתנות מלא לאורך שנתיים ומול הענף; תרגול עצמי.',
+         next_h='יחסי יעילות', next_t='מהסיכון אל הניהול: כמה מהר המלאי נמכר, כמה מהר הלקוחות משלמים, כמה זמן החברה מחכה עם התשלום לספקים, ומה כל אלה אומרים על מחזור המרת המזומן.')}[LESSON]
 XSPECS = []        # every live sheet, in deck order: the practice workbooks are built from these
 SL = []            # every slide, in order
 CUR = [None]       # current part number
@@ -352,7 +356,7 @@ def _argnames(data, sol, head):
     return data
 
 
-def _xsheet(sid, task, data, sol, widths, head, rows=None, cols=None, hints=None, remind=None, partial=None, chart=None, values=False, done='', extra='',
+def _xsheet(sid, task, data, sol, widths, head, rows=None, cols=None, hints=None, remind=None, partial=None, chart=None, values=True, done='', extra='',
             fmt=None, traps=None, allow=None, r0=1, maxh=None, tol=None, need=None, needMsg=None, xname=None, xtitle=None, steps=None, side=False, title='', signMsg=None, qtext=None, build=None, zone=None, given=None, area=None, sty=None, start=None, pdf_rows=None):
     """The live sheet itself. side=True: the sheet sits beside a question, and its feedback goes under the question (an element .xfb)."""
     fmt = fmt or {}
@@ -525,5 +529,5 @@ exec(R('content_g.py'))
 exec(R('content_v.py'))
 exec(R('content_h.py'))
 exec(R('content_x.py'))
-for _f in {1: ['content_l1a.py', 'content_l1b.py', 'content_l1c.py', 'content_l1d.py']}[LESSON]:
+for _f in {1: ['content_l1a.py', 'content_l1b.py', 'content_l1c.py', 'content_l1d.py'], 2: ['content_l2a.py', 'content_l2b.py', 'content_l2c.py']}[LESSON]:
     exec(R(_f))
