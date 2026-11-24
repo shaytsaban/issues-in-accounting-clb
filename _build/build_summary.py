@@ -123,6 +123,8 @@ table.xlp{width:auto;min-width:60%;font-size:10pt;break-inside:avoid}.xlp td,.xl
 .pc{margin:0;padding-right:5mm}.res4 td.amt{text-align:center}.res4 tr.sep td{background:#f1ece0;font-weight:700}.stmt td.amt{white-space:nowrap}
 .card.ok{border-right:1mm solid #25a65f}.card.warn{border-right:1mm solid #e0454f}.minis{display:block}
 '''
+if LESSON >= 3:   # lecture 3 on: two-column slide layouts stack in print, so a side note never becomes a narrow strip
+    CSS += '.row.g55{display:block}.row.g55>.col{margin-bottom:1.5mm}.cmap,.swap{display:none}'
 parts = {}
 for s in SL:
     parts.setdefault(s['part'], []).append(s)

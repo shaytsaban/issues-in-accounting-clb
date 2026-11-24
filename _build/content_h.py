@@ -68,7 +68,7 @@ def MC1(sid, title, q, opts, a, why, art=None, story=None, side=None, foot=None)
         S(sid, title, title, f'<div class="mc1 wside"><div class="mc1side">{side}</div><div class="mc1q">{st}{item}{ft}</div></div>', kick=f'חלק {CUR[0]} · שאלה אחת'); return
     side = f'<div class="mc1art">{_svg(TOONS.get(art, art))}</div>' if art else ''
     st = f'<div class="card qstem mc1s"><p>{TX(story)}</p></div>' if story else ''
-    S(sid, title, title, f'<div class="mc1">{side}<div class="mc1q">{st}{item}</div></div>', kick=f'חלק {CUR[0]} · שאלה אחת')
+    S(sid, title, title, f'<div class="mc1">{side}<div class="mc1q">{st}{item}{ft}</div></div>', kick=f'חלק {CUR[0]} · שאלה אחת')
 
 
 GFILL = {'a': '#d7f1ec', 'l': '#fde2da', 'e': '#e1e7f8', 'pl': '#fff0c2', 'c': '#ececec', 't': '#f3f2f1'}
