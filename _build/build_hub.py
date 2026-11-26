@@ -28,6 +28,11 @@ LEC = {
      'מחזור נכסים ומחזור רכוש קבוע', 'ניתוח יעילות מלא, הקשר לנזילות, ומה היחסים אינם רואים',
      'מהעולם האמיתי: יבואני הרכב, Apple, Nvidia, החוב של משרד הביטחון, וגיליון חי עם המספרים האמיתיים של שופרסל',
      'תרגול עצמי: שבעה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״']),
+ 4: dict(t='יחסי רווחיות: רווח גולמי, רווח תפעולי, EBITDA ורווח נקי', date='3.12.2026', rec='', draft=True, learn=[
+     'רענון: מפת היחסים, ויעילות אינה רווחיות', 'דוח רווח והפסד לכל 100 ש״ח של מכירות, וניתוח אנכי', 'שיעור רווח גולמי: מחיר, עלות, תמהיל, חברה מסחרית מול יצרנית, וכוח מיקוח',
+     'שיעור רווח תפעולי: דיסקאונט מול פרימיום, אירועים חד פעמיים ורווח מנוטרל, ומינוף תפעולי', 'EBITDA ותקן החכירות', 'שיעור רווח נקי, שיעור מס אפקטיבי ומבנה ההון',
+     'ניתוח רווחיות מלא של תעשיות נירוסטה, וארבע עדשות על חברה אחת', 'מהעולם האמיתי: רמי לוי ושופרסל במספרים מהדוחות, כוח המיקוח של הספקים, וקוסטקו',
+     'תרגול עצמי: שבעה תרגילים, כל אחד עם גיליון, רמזים, פתרון צעד אחר צעד וכפתור ״הסבר נוסף״']),
 }
 
 
@@ -36,7 +41,7 @@ def card(k):
     rec = (f'<div class="recbox"><iframe src="https://www.youtube-nocookie.com/embed/{L["rec"]}" title="הקלטת הרצאה {k}, {L["date"]}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
            if L['rec'] else f'<div class="recbig"><div class="rb-in"><span class="rb-play">▶</span><b>הקלטת הרצאה {k}</b><span>תועלה לאחר המפגש</span></div></div>')
     return f'''<article class="lec" id="lesson-{k}">
-<div class="lec-head"><div class="lec-n">{k}</div><div><h3>{L["t"]}</h3><div class="sub">הרצאה {n(k)} · {n(L["date"])}</div></div></div>
+<div class="lec-head"><div class="lec-n">{k}</div><div><h3>{L["t"]}</h3><div class="sub">הרצאה {n(k)} · {n(L["date"])}{' · <span class="draft">טיוטה, ייתכנו עדכונים</span>' if L.get('draft') else ''}</div></div></div>
 <div class="lec-body">
 <div><h4>מה לומדים בהרצאה</h4><ul class="learn">
 {"".join("<li>" + x + "</li>" for x in L["learn"])}

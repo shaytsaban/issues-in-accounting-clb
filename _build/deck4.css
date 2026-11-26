@@ -1,0 +1,5 @@
+/* ===== lecture 4: profitability ===== */
+.plst{width:100%;height:auto;display:block}
+.learn.lens4{grid-template-columns:1fr 1fr;gap:12px}.learn.lens4 .lcard b{font-size:23px}.learn.lens4 .lcard p{font-size:20px}
+.row.eq2>.col>.card>.plst{margin-top:4px}
+#s-ifrs16 .card p{font-size:21px;line-height:1.45}

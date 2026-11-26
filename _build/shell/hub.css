@@ -98,3 +98,4 @@ footer a{color:var(--navy2);font-weight:700;direction:ltr;unicode-bidi:isolate;d
 .ups .un{flex:none;min-width:34px;padding:0 6px;white-space:nowrap;height:34px;border-radius:10px;background:#eef0f6;color:var(--navy2);display:grid;place-items:center;font-weight:800}
 .ups em{margin-right:auto;font-style:normal;color:var(--mut);font-size:14px;font-weight:500}
 @media (max-width:760px){.solutions{flex-direction:column;padding:20px 18px}.solutions .btn2{margin-right:0;width:100%}.todo{margin:0 18px 22px;padding:14px 16px}.ups li{padding:10px 14px}}
+.lec-head .sub .draft{background:#fff0d2;color:#a86703;border:1px solid #e8960c;border-radius:8px;padding:1px 8px;font-weight:800}

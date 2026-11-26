@@ -56,7 +56,8 @@ _used = set(re.findall(r'data-t="(\w+)"', slides_html))
 gj = json.dumps({k: {f: (TX(FXW(v)) if f != 'en' else v) for f, v in g.items()} for k, g in G.items() if k in _used}, ensure_ascii=False)
 js = f'const COURSE={json.dumps(COURSE, ensure_ascii=False)};const LESSON={LESSON};\nconst G={gj};\n' + R('deck.js') + '\n' + R('xl.js') + '\n' + R('act.js') + (('\n' + R('autofit.js')) if LMETA.get('autofit') else '')
 title = f'{COURSE} | הרצאה {LESSON} | {LMETA["title"]}'
-L3CSS = R('deck3.css') if LESSON >= 3 else ''   # lecture 3 on: its own styles, so the taught decks rebuild byte-identical
+L3CSS = R('deck3.css') if LESSON >= 3 else ''
+L3CSS += R('deck4.css') if LESSON >= 4 else ''   # lecture 4 on   # lecture 3 on: its own styles, so the taught decks rebuild byte-identical
 html = (f'<!doctype html>\n<html lang="he" dir="rtl">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>{title}</title>\n<style>\n'
         + fonts + base + R('deck.css') + L3CSS + '</style>\n</head>\n<body>\n<div class="stage" id="stage">\n' + slides_html + '\n' + tail
         + '<script>\n(function(){\n' + js + '\n})();\n</script>\n</body>\n</html>\n').replace('¤', '$')
